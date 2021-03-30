@@ -11,10 +11,10 @@ public class GroupChatDataController {
     // @Autowired
     // private GroupChatDataService service;
 
-    @RequestMapping("/")
-    public String index() {
-        
-        return "Hello Team. Lets get to work";
-    }
+//    @RequestMapping("/")
+//    public String index() {
+//
+//        return "Hello Team. Lets get to work";
+//    }
     
 }
