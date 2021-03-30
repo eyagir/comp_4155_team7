@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jh</groupId>
-	<artifactId>covid-app</artifactId>
+	<artifactId>groupChat</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>covid-app</name>
+	<name>groupChat</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
