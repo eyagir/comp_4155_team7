@@ -39,6 +39,6 @@ public class GroupChatDataController {
 
         userRepo.save(user);
 
-        return "login";
+        return "login_page";
     }
 }
