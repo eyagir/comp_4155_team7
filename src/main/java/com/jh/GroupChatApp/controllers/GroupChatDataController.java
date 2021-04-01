@@ -24,6 +24,12 @@ public class GroupChatDataController {
         return "home";
     }
 
+    @GetMapping("/account")
+    public String viewAccountPage() {
+
+        return "account";
+    }
+
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
