@@ -10,6 +10,27 @@
             <input type="submit" value="Sign Out" />
         </form>
     </div>
+
+    <form class="col s12" method="post" th:object="${newpost}" th:action="@{/post/new}">
+        <div class="row">
+            <div class="input-field col s8">
+                <textarea id="icon_prefix2" placeholder="Share your thoughts..." class="materialize-textarea" th:field="*{textBody}"></textarea>
+                <label for="icon_prefix2"></label>
+            </div>
+            <button type="submit" name="action">Post
+                <i class="material-icons right"></i>
+            </button>
+
+        </div>
+    </form>
+
+    <div th:each="post : ${posts}">
+        <p><b th:text="${post.getUser().getUserName()}"></b></p>
+        <p><b th:text="${post.getTextBody()}"></b></p>
+        <p><b th:text="${post.getCreatedAt()}"></b></p>
+        <br>
+    </div>
+
 </div>
 </body>
 </html>

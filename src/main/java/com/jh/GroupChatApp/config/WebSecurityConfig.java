@@ -1,6 +1,6 @@
-package com.jh.GroupChatApp.configs;
+package com.jh.GroupChatApp.config;
 
-import com.jh.GroupChatApp.services.CustomUserDetailsService;
+import com.jh.GroupChatApp.security.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

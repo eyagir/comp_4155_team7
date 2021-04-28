@@ -1,4 +1,4 @@
-package com.jh.GroupChatApp.configs;
+package com.jh.GroupChatApp.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -12,8 +12,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("home");
         registry.addViewController("/account").setViewName("account");
         registry.addViewController("/login").setViewName("login_page");
-//        registry.addViewController("/register").setViewName("register_page");
-
+        registry.addViewController("/register").setViewName("register_page");
     }
 
 }

@@ -1,27 +1,27 @@
-package com.jh.GroupChatApp.users;
+package com.jh.GroupChatApp.model;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "userid")
+    private Long userId;
 
-    @Column(nullable = false, length = 20)
+//    @Column(nullable = false, length = 20)
     private String password;
 
-    @Column(name = "username", nullable = false, length = 20)
-    private String userName;
+//    @Column(name = "username", nullable = false, length = 20)
+    private String username;
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long id) {
+        this.userId = userId;
     }
 
     public String getPassword() {
@@ -33,11 +33,11 @@ public class User {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
 }

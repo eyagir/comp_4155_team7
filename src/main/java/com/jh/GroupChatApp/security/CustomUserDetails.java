@@ -1,12 +1,16 @@
-package com.jh.GroupChatApp.services;
+package com.jh.GroupChatApp.security;
 
-import com.jh.GroupChatApp.users.User;
+import com.jh.GroupChatApp.model.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class CustomUserDetails implements UserDetails {
+
+
 
     private User user;
     public CustomUserDetails(User user) {
@@ -15,9 +19,10 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.<GrantedAuthority>singletonList(new SimpleGrantedAuthority("User"));
     }
 
+    public User getUser() { return user; }
     @Override
     public String getPassword() {
         return user.getPassword();

@@ -1,22 +1,24 @@
-package com.jh.GroupChatApp.services;
+package com.jh.GroupChatApp.security;
 
-import com.jh.GroupChatApp.users.User;
-import com.jh.GroupChatApp.users.UserRepository;
+import com.jh.GroupChatApp.model.User;
+import com.jh.GroupChatApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepo;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepo.findByUserName(username);
+        User user = userRepository.findByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("Username not found");
         }
         return new CustomUserDetails(user);
     }
