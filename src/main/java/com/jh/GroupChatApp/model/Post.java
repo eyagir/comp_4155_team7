@@ -18,6 +18,9 @@ public class Post {
     @Column(name = "createdat")
     private Timestamp createdAt;
 
+    @Column(name = "title")
+    private String title;
+
     @Column(name = "textbody")
     private String textBody;
 
@@ -41,6 +44,14 @@ public class Post {
 
     public void setTextBody(String text) {
         this.textBody = text;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String titleText) {
+        this.title = titleText;
     }
 
 }

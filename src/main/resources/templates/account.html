@@ -14,6 +14,10 @@
     <form class="col s12" method="post" th:object="${newpost}" th:action="@{/post/new}">
         <div class="row">
             <div class="input-field col s8">
+                <input id="icon_prefix" placeholder="Place amazing title here..." class="materialize-textarea" th:field="*{title}"></input>
+                <label for="icon_prefix"></label>
+            </div>
+            <div class="input-field col s8">
                 <textarea id="icon_prefix2" placeholder="Share your thoughts..." class="materialize-textarea" th:field="*{textBody}"></textarea>
                 <label for="icon_prefix2"></label>
             </div>
@@ -26,6 +30,7 @@
 
     <div th:each="post : ${posts}">
         <p><b th:text="${post.getUser().getUserName()}"></b></p>
+        <p><b th:text="${post.getTitle()}"></b></p>
         <p><b th:text="${post.getTextBody()}"></b></p>
         <p><b th:text="${post.getCreatedAt()}"></b></p>
         <br>
