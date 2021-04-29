@@ -6,12 +6,20 @@
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+    <a th:href="@{/}">
+        <img class="homeButton" th:src="@{/logos/logo.PNG}">
+    </a>
+    
 </head>
-<body>
+<body class="App">
 <div class="container text-center">
-    <div>
-        <h1>User Registration</h1>
-    </div>
+
+    <h1>User Registration</h1>
+    
     <form th:action="@{/process_register}" th:object="${user}"
           method="post" style="max-width: 600px; margin: 0 auto;">
         <div class="m-3">

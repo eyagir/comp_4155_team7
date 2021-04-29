@@ -2,9 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+        <a th:href="@{/}">
+            <img class="homeButton" th:src="@{/logos/logo.PNG}">
+        </a>
     <title>Login Page</title>
 </head>
-<body>
+<body class="App">
+    <h1>Login</h1>
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
