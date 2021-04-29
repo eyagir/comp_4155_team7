@@ -1,11 +1,11 @@
 package com.jh.GroupChatApp.serviceInterface;
 
-import com.jh.GroupChatApp.model.Friendship;
-import com.jh.GroupChatApp.model.Post;
-import com.jh.GroupChatApp.model.User;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+
+import com.jh.GroupChatApp.model.Friendship;
+import com.jh.GroupChatApp.model.User;
+
+import org.springframework.stereotype.Service;
 
 @Service
 

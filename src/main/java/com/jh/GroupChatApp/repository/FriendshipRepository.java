@@ -1,7 +1,6 @@
 package com.jh.GroupChatApp.repository;
 
 import com.jh.GroupChatApp.model.Friendship;
-import com.jh.GroupChatApp.model.Post;
 import com.jh.GroupChatApp.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

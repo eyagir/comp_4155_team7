@@ -1,20 +1,18 @@
 package com.jh.GroupChatApp.controller;
 
+import java.security.Principal;
+
 import com.jh.GroupChatApp.model.Friendship;
-import com.jh.GroupChatApp.model.Post;
 import com.jh.GroupChatApp.model.User;
 import com.jh.GroupChatApp.serviceInterface.FriendshipService;
 import com.jh.GroupChatApp.serviceInterface.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import java.security.Principal;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/friendship")

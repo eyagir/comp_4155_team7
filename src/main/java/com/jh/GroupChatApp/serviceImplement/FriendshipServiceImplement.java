@@ -1,7 +1,6 @@
 package com.jh.GroupChatApp.serviceImplement;
 
 import com.jh.GroupChatApp.model.Friendship;
-import com.jh.GroupChatApp.model.Post;
 import com.jh.GroupChatApp.model.User;
 import com.jh.GroupChatApp.repository.FriendshipRepository;
 import com.jh.GroupChatApp.serviceInterface.FriendshipService;

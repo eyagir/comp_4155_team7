@@ -1,7 +1,6 @@
 package com.jh.GroupChatApp.model;
 
 import javax.persistence.*;
-import com.jh.GroupChatApp.model.User;
 
 @Entity
 public class Friendship {

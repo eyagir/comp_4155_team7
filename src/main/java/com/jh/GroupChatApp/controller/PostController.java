@@ -1,19 +1,18 @@
 package com.jh.GroupChatApp.controller;
 
+import java.security.Principal;
+import java.sql.Timestamp;
+import java.util.Date;
+
 import com.jh.GroupChatApp.model.Post;
-import com.jh.GroupChatApp.repository.PostRepository;
-import com.jh.GroupChatApp.repository.UserRepository;
 import com.jh.GroupChatApp.serviceInterface.PostService;
 import com.jh.GroupChatApp.serviceInterface.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Date;
-import java.sql.Timestamp;
-import java.security.Principal;
 
 @Controller
 @RequestMapping("/post")
