@@ -14,12 +14,12 @@
     <form class="col s12" method="post" th:object="${newpost}" th:action="@{/post/new}">
         <div class="row">
             <div class="input-field col s8">
-                <input id="icon_prefix" placeholder="Place amazing title here..." class="materialize-textarea" th:field="*{title}"></input>
-                <label for="icon_prefix"></label>
+                <input id="postTitle" placeholder="Place amazing title here..." class="materialize-textarea" th:field="*{title}"></input>
+                <label for="postTitle"></label>
             </div>
             <div class="input-field col s8">
-                <textarea id="icon_prefix2" placeholder="Share your thoughts..." class="materialize-textarea" th:field="*{textBody}"></textarea>
-                <label for="icon_prefix2"></label>
+                <textarea id="postBody" placeholder="Share your thoughts..." class="materialize-textarea" th:field="*{textBody}"></textarea>
+                <label for="postBody"></label>
             </div>
             <button type="submit" name="action">Post
                 <i class="material-icons right"></i>
@@ -29,13 +29,43 @@
     </form>
 
     <div th:each="post : ${posts}">
-        <p><b th:text="${post.getUser().getUserName()}"></b></p>
-        <p><b th:text="${post.getTitle()}"></b></p>
-        <p><b th:text="${post.getTextBody()}"></b></p>
-        <p><b th:text="${post.getCreatedAt()}"></b></p>
+        <form class="col s12" method="post" th:object="${postdelete}"
+              th:action="@{/post/delete/{id}(id=${post.getPostId()})}">
+            <p><b th:text="${post.getUser().getUserName()}"></b></p>
+            <p><b th:text="${post.getTitle()}"></b></p>
+            <p><b th:text="${post.getTextBody()}"></b></p>
+            <p><b th:text="${post.getCreatedAt()}"></b></p>
+            <button type="submit" name="action">Delete
+                <i class="material-icons right"></i>
+            </button>
+            <br>
+        </form>
+    </div>
+
+    <form class="col s12" method="friendship" th:object="${newFriendRequest}" th:action="@{/friendship/request}">
+        <div class="row">
+            <div class="input-field col s8">
+                <input id="newFriendship" placeholder="Add a friend..." class="materialize-textarea" name="username"></input>
+                <label for="newFriendship"></label>
+            </div>
+            <button type="submit" name="action">Post
+                <i class="material-icons right"></i>
+            </button>
+        </div>
+    </form>
+
+    <div th:each="friend : ${friends}">
+        <p><b th:text="${friend.getUserName()}"></b></p>
         <br>
     </div>
 
+    <form method="friendship" th:object="${acceptFriendRequest}" th:action="@{/friendship/accept}" >
+    <div th:each="friend : ${friendRequests}">
+        <p><b th:text="${friend.getUserName()}"></b></p>
+        <input type="submit" value="Accept" />
+        <br>
+    </div>
+    </form>
 </div>
 </body>
 </html>

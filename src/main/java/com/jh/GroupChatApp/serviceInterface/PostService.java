@@ -13,5 +13,7 @@ public interface PostService {
 
     Post createPost(Post post);
 
+    Post getPostById(int id);
+
     void deletePost(Post post);
 }

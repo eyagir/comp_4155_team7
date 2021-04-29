@@ -26,6 +26,9 @@ public class PostServiceImplement implements PostService {
     }
 
     @Override
+    public Post getPostById(int id) { return postRepository.findById(id); }
+
+    @Override
     public void deletePost(Post post) {
         postRepository.delete(post);
     }

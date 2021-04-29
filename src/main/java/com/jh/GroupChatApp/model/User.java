@@ -1,6 +1,7 @@
 package com.jh.GroupChatApp.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
