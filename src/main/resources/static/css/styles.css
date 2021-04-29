@@ -62,6 +62,18 @@
     color: #e8f1f2;
   }
 
+  .link{
+    position: relative;
+    bottom: -100px;
+    font-size: xx-large;
+    color: #e8f1f2;
+    
+  }
+
+  .link a:visited{
+    color: #e8f1f2;
+  }
+
   .homeButton{
     position: relative;
     left: -500px;
