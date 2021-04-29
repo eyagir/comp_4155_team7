@@ -43,10 +43,10 @@
         <div class="container">
             <form class="col s12" method="post" th:object="${postdelete}"
                 th:action="@{/post/delete/{id}(id=${post.getPostId()})}">
-                <p><b th:text="${post.getUser().getUserName()}"></b></p>
+                <p class="userName"><b th:text="${post.getUser().getUserName()}"></b></p>
                 <p><b th:text="${post.getTitle()}"></b></p>
-                <p><b th:text="${post.getTextBody()}"></b></p>
-                <p><b th:text="${post.getCreatedAt()}"></b></p>
+                <p th:text="${post.getTextBody()}"></p>
+                <p th:text="${post.getCreatedAt()}"></p>
                 <button type="submit" name="action">Delete
                     <i class="material-icons right"></i>
                 </button>
@@ -55,18 +55,19 @@
         </div>
     </div>
 
-    <form class="col s12" method="friendship" th:object="${newFriendRequest}" th:action="@{/friendship/request}">
-        <div class="row">
-            <div class="input-field col s8">
-                <input id="newFriendship" placeholder="Add a friend..." class="materialize-textarea" name="username"></input>
-                <label for="newFriendship"></label>
-            </div>
-            <button type="submit" name="action">Add
-                <i class="material-icons right"></i>
-            </button>
-        </div>
-    </form>
     <div class="friend">
+        <form class="col s12" method="friendship" th:object="${newFriendRequest}" th:action="@{/friendship/request}">
+            <div class="row">
+                <div class="input-field col s8">
+                    <input id="newFriendship" placeholder="Add a friend..." class="materialize-textarea" name="username"></input>
+                    <label for="newFriendship"></label>
+                </div>
+                <button type="submit" name="action">Add
+                    <i class="material-icons right"></i>
+                </button>
+            </div>
+        </form>
+    
         <p><b>Friends:</b></p>
         <div th:each="friend : ${friends}">
             <p><b th:text="${friend.getUserName()}"></b></p>
