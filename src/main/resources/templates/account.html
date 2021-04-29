@@ -59,7 +59,7 @@
                 <input id="newFriendship" placeholder="Add a friend..." class="materialize-textarea" name="username"></input>
                 <label for="newFriendship"></label>
             </div>
-            <button type="submit" name="action">Post
+            <button type="submit" name="action">Add
                 <i class="material-icons right"></i>
             </button>
         </div>
@@ -70,10 +70,10 @@
         <br>
     </div>
 
-    <form method="friendship" th:object="${acceptFriendRequest}" th:action="@{/friendship/accept}" >
     <div th:each="friend : ${friendRequests}">
-        <p><b th:text="${friend.getUserName()}"></b></p>
-        <input type="submit" value="Accept" />
+    <form method="friendship" th:object="${acceptFriendRequest}" th:action="@{/friendship/accept/{username}(username=${friend.getUserName()})}">
+        <p><b th:text="${friend.getUserName()}" ></b></p>
+        <input type="submit" value="Accept" name="usernameAccept">
         <br>
     </div>
     </form>

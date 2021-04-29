@@ -16,4 +16,5 @@ public interface FriendshipRepository extends JpaRepository<Friendship, Long> {
     List<Friendship> findAllByUser2AndFriendshipConfirmedIsFalse(User user);
     Friendship findByUser1AndUser2(User user1, User user2);
     Friendship findByUser2AndUser1(User user1, User user2);
+
 }
