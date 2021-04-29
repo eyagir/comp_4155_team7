@@ -39,18 +39,20 @@
         </div>
     </form>
 
-    <div th:each="post : ${posts}">
-        <form class="col s12" method="post" th:object="${postdelete}"
-              th:action="@{/post/delete/{id}(id=${post.getPostId()})}">
-            <p><b th:text="${post.getUser().getUserName()}"></b></p>
-            <p><b th:text="${post.getTitle()}"></b></p>
-            <p><b th:text="${post.getTextBody()}"></b></p>
-            <p><b th:text="${post.getCreatedAt()}"></b></p>
-            <button type="submit" name="action">Delete
-                <i class="material-icons right"></i>
-            </button>
-            <br>
-        </form>
+    <div class="card" th:each="post : ${posts}">
+        <div class="container">
+            <form class="col s12" method="post" th:object="${postdelete}"
+                th:action="@{/post/delete/{id}(id=${post.getPostId()})}">
+                <p><b th:text="${post.getUser().getUserName()}"></b></p>
+                <p><b th:text="${post.getTitle()}"></b></p>
+                <p><b th:text="${post.getTextBody()}"></b></p>
+                <p><b th:text="${post.getCreatedAt()}"></b></p>
+                <button type="submit" name="action">Delete
+                    <i class="material-icons right"></i>
+                </button>
+                <br>
+            </form>
+        </div>
     </div>
 
     <form class="col s12" method="friendship" th:object="${newFriendRequest}" th:action="@{/friendship/request}">
@@ -64,19 +66,22 @@
             </button>
         </div>
     </form>
+    <div class="friend">
+        <p><b>Friends:</b></p>
+        <div th:each="friend : ${friends}">
+            <p><b th:text="${friend.getUserName()}"></b></p>
+            <br>
+        </div>
 
-    <div th:each="friend : ${friends}">
-        <p><b th:text="${friend.getUserName()}"></b></p>
-        <br>
+        <p>Requests:</p>
+        <div th:each="friend : ${friendRequests}">
+            <form method="friendship" th:object="${acceptFriendRequest}" th:action="@{/friendship/accept/{username}(username=${friend.getUserName()})}">
+                <p><b th:text="${friend.getUserName()}" ></b></p>
+                <input type="submit" value="Accept" name="usernameAccept">
+                <br> 
+            </form>
+        </div> 
     </div>
-
-    <div th:each="friend : ${friendRequests}">
-    <form method="friendship" th:object="${acceptFriendRequest}" th:action="@{/friendship/accept/{username}(username=${friend.getUserName()})}">
-        <p><b th:text="${friend.getUserName()}" ></b></p>
-        <input type="submit" value="Accept" name="usernameAccept">
-        <br>
-    </div>
-    </form>
 </div>
 </body>
 </html>
