@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
+
+<head>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+
+    <a th:href="@{/}">
+        <img class="homeButton" th:src="@{/logos/logo.PNG}">
+    </a>
+
+</head>
+
+<body class="App">
 <div class="container text-center">
     <div>
         <form th:action="@{/logout}" method="post">

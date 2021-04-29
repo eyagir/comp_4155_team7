@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<body>
+
+<head>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <a th:href="@{/}">
+        <img class="homeButton" th:src="@{/logos/logo.PNG}">
+    </a>
+</head>
+
+<body class="App">
 <div class="container text-center">
     <h1>Welcome!</h1>
-    <h3><a th:href="@{/register}">Register</a></h3>
-    <h3><a th:href="@{/login}">Login</a></h3>
+    <h3>
+        <a th:href="@{/register}"><button>Register</button></a></h3>
+    <h3>
+        <a th:href="@{/login}"><button>Login</button></a>
+    </h3>
+</div>
+<div>
+    <img class="App-logo" th:src="@{/logos/logo.PNG}" alt="logos">
+</div>
+<div class="link">
+    <a href="https://groupchat-ourvid.herokuapp.com/">OurVid Public Groupchat</a>
 </div>
 </body>
 </html>
