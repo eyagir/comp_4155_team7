@@ -45,7 +45,9 @@ public class AccountController {
         model.addAttribute("posts", postService.getPostsByUserAndFriends(user));
         model.addAttribute("post", new Post());
         if (session.getAttribute("selectedPost") == null) {
-            model.addAttribute("comments", commentService.getCommentsByPost(postService.getPostsByUserAndFriends(user).get(0)));
+            if (!postService.getPostsByUserAndFriends(user).isEmpty()) {
+                model.addAttribute("comments", commentService.getCommentsByPost(postService.getPostsByUserAndFriends(user).get(0)));
+            }
         } else {
             model.addAttribute("comments", commentService.getCommentsByPost(postService.getPostById((int)session.getAttribute("selectedPost"))));
         }

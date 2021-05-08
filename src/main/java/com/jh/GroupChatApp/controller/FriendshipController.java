@@ -32,7 +32,7 @@ public class FriendshipController {
         return "redirect:/account";
     }
 
-    @GetMapping("/accept/{username}")
+    @GetMapping(value="/manage/{username}", params="action=accept")
     public String acceptFriendship(@PathVariable("username") String username, Principal principal) {
         User user1 = userService.getUserByUsername(username);
         User user2 = userService.getUserByUsername(principal.getName());
@@ -40,6 +40,15 @@ public class FriendshipController {
         friendshipService.deleteFriendship(friendship);
         friendship.setFriendshipConfirmed(true);
         friendshipService.createFriendship(friendship);
+        return "redirect:/account";
+    }
+
+    @GetMapping(value="/manage/{username}", params="action=reject")
+    public String denyFriendship(@PathVariable("username") String username, Principal principal) {
+        User user1 = userService.getUserByUsername(username);
+        User user2 = userService.getUserByUsername(principal.getName());
+        Friendship friendship = friendshipService.getFriendshipByUsers(user1, user2);
+        friendshipService.deleteFriendship(friendship);
         return "redirect:/account";
     }
 }
