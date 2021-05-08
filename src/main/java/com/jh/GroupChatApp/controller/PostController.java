@@ -12,10 +12,10 @@ import com.jh.GroupChatApp.serviceInterface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/post")
@@ -38,17 +38,16 @@ public class PostController {
         return "redirect:/account";
     }
 
-    @PostMapping("/delete/{id}")
-    public String deletePostIndex(@PathVariable("id") int id) {
+    @PostMapping(value="/{id}", params="action=delete")
+    public String deletePost(@PathVariable("id") int id) {
         Post post = postService.getPostById(id);
         postService.deletePost(post);
         return "redirect:/account";
     }
 
-    @PostMapping("/{id}")
-    public String viewPostComments(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
-        redirectAttributes.addAttribute("postSelected", id);
-
+    @PostMapping(value="/{id}", params="action=comments")
+    public String viewPostComments(@PathVariable("id") int id, HttpSession session) {
+        session.setAttribute("selectedPost", id);
         return "redirect:/account";
     }
 }

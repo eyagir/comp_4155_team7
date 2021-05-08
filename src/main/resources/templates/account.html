@@ -76,22 +76,22 @@
                                 </div>
                                 <div class="inner">
                                     <div class="card" th:each="post : ${posts}">
-<!--                                        <a th:action="@{/post/{id}(id=${post.getPostId()})}">-->
                                         <div class="container">
-                                            <form class="col s12" method="post" th:object="${postdelete}"
-                                                th:action="@{/post/delete/{id}(id=${post.getPostId()})}">
+                                            <form class="col s12" method="post" th:object="${post}"
+                                                th:action="@{/post/{id}(id=${post.getPostId()})}">
                                                 <p class="userName"><b th:text="${post.getUser().getUserName()}"></b></p>
                                                 <p><b th:text="${post.getTitle()}"></b></p>
                                                 <p th:text="${post.getTextBody()}"></p>
                                                 <p th:text="${post.getCreatedAt()}"></p>
-                                                <button type="submit" name="action">Delete
+                                                <button type="submit" name="action" value="delete">Delete
                                                     <i class="material-icons right"></i>
                                                 </button>
-
+                                                <button type="submit" name="action" value="comments">View Comments
+                                                    <i class="material-icons right"></i>
+                                                </button>
                                                 <br>
                                             </form>
                                         </div>
-<!--                                        </a>-->
                                     </div>
                                 </div>
                             </section>
