@@ -51,7 +51,7 @@
                             
                         </section>
 
-                    <!-- Panel -->
+                    <!-- Posts Panel -->
                             <section class="panel color1">
                                 <div class="intro joined">
                                     <h2> Make a Post </h2>
@@ -76,6 +76,7 @@
                                 </div>
                                 <div class="inner">
                                     <div class="card" th:each="post : ${posts}">
+<!--                                        <a th:action="@{/post/{id}(id=${post.getPostId()})}">-->
                                         <div class="container">
                                             <form class="col s12" method="post" th:object="${postdelete}"
                                                 th:action="@{/post/delete/{id}(id=${post.getPostId()})}">
@@ -86,12 +87,51 @@
                                                 <button type="submit" name="action">Delete
                                                     <i class="material-icons right"></i>
                                                 </button>
+
                                                 <br>
                                             </form>
                                         </div>
+<!--                                        </a>-->
                                     </div>
                                 </div>
                             </section>
+
+
+                    <!-- Comments Panel -->
+                    <section class="panel color1">
+                        <div class="intro joined">
+                            <h2> Make a Comment </h2>
+
+                            <form class="col s12" method="comment" th:object="${newcomment}" th:action="@{/comment/new}">
+                                <div class="row">
+                                    <div class="input-field col s8">
+                                        <textarea id="commentBody" placeholder="Share your thoughts..." class="materialize-textarea" th:field="*{textBody}"></textarea>
+                                        <label for="postBody"></label>
+                                    </div>
+                                    <button type="submit" name="action">Post
+                                        <i class="material-icons right"></i>
+                                    </button>
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="inner">
+                            <div class="card" th:each="comment : ${comments}">
+                                <div class="container">
+                                    <form class="col s12" method="post" th:object="${commentdelete}"
+                                          th:action="@{/post/delete/{id}(id=${comment.getCommentId()})}">
+                                        <p class="userName"><b th:text="${comment.getUser().getUserName()}"></b></p>
+                                        <p th:text="${comment.getTextBody()}"></p>
+                                        <p th:text="${comment.getCreatedAt()}"></p>
+                                        <button type="submit" name="action">Delete
+                                            <i class="material-icons right"></i>
+                                        </button>
+                                        <br>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
 
 

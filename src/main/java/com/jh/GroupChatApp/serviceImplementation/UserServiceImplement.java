@@ -1,4 +1,4 @@
-package com.jh.GroupChatApp.serviceImplement;
+package com.jh.GroupChatApp.serviceImplementation;
 
 import com.jh.GroupChatApp.model.User;
 import com.jh.GroupChatApp.repository.UserRepository;
