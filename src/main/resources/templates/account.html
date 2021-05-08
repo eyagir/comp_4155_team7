@@ -61,13 +61,13 @@
                 <form class="col s12" method="post" th:object="${newpost}" th:action="@{/post/new}">
                     <div class="row">
                         <div class="input-field col s8">
-                            <h3> Title <h3>
-                                <input id="postTitle" placeholder="Place amazing title here..."
-                                       class="materialize-textarea" th:field="*{title}"></input>
-                                <label for="postTitle"></label>
+                            <textarea id="postTitle" placeholder="Add a Title..."
+                                      class="materialize-textarea"
+                                      th:field="*{title}"></textarea>
+                            <label for="postTitle"></label>
                         </div>
                         <div class="input-field col s8">
-                            <textarea id="postBody" placeholder="Share your thoughts..." class="materialize-textarea"
+                            <textarea id="postBody" placeholder="Say something..." class="materialize-textarea"
                                       th:field="*{textBody}"></textarea>
                             <label for="postBody"></label>
                         </div>
@@ -83,10 +83,10 @@
                     <div class="container">
                         <form class="col s12" method="post" th:object="${post}"
                               th:action="@{/post/{id}(id=${post.getPostId()})}">
-                            <p class="userName"><b th:text="${post.getUser().getUserName()}"></b></p>
-                            <p><b th:text="${post.getTitle()}"></b></p>
+                            <div class="userName"><b th:text="${post.getUser().getUserName()}"></b><br><em
+                                    th:text="${post.getCreatedAt()}"></em></div>
+                            <h3 th:text="${post.getTitle()}"></h3>
                             <p th:text="${post.getTextBody()}"></p>
-                            <p th:text="${post.getCreatedAt()}"></p>
                             <button type="submit" name="action" value="delete">Delete
                                 <i class="material-icons right"></i>
                             </button>
@@ -104,12 +104,12 @@
         <!-- Comments Panel -->
         <section class="panel color4" style="vertical-align: middle; overflow-y: auto;">
             <div class="intro joined">
-                <h2> Make a Comment </h2>
+                <h2> Comment </h2>
 
                 <form class="col s12" method="comment" th:object="${newcomment}" th:action="@{/comment/new}">
                     <div class="row">
                         <div class="input-field col s8">
-                            <textarea id="commentBody" placeholder="Share your thoughts..." class="materialize-textarea"
+                            <textarea id="commentBody" placeholder="Make a comment..." class="materialize-textarea"
                                       th:field="*{textBody}"></textarea>
                             <label for="postBody"></label>
                         </div>
@@ -124,10 +124,15 @@
                 <div class="card" th:each="comment : ${comments}">
                     <div class="container">
                         <form class="col s12" method="post" th:object="${commentdelete}"
+<<<<<<< HEAD
                                 th:action="@{/post/delete/{id}(id=${comment.getCommentId()})}">
                             <p class="userName"><b th:text="${comment.getUser().getUserName()}"></b></p>
+=======
+                              th:action="@{/post/delete/{id}(id=${comment.getCommentId()})}">
+                            <div class="userName"><b th:text="${comment.getUser().getUserName()}"></b><br><em th:text="${comment.getCreatedAt()}"></em></div>
+                            <br>
+>>>>>>> da87a5abee63e2f46ad5294c3302ce5acebdd4ec
                             <p th:text="${comment.getTextBody()}"></p>
-                            <p th:text="${comment.getCreatedAt()}"></p>
                             <button type="submit" name="action">Delete
                                 <i class="material-icons right"></i>
                             </button>
@@ -148,8 +153,8 @@
                           th:action="@{/friendship/request}">
                         <div class="row">
                             <div class="input-field col s8">
-                                <input id="newFriendship" placeholder="Add a friend..." class="materialize-textarea"
-                                       name="username"></input>
+                                <textarea id="newFriendship" placeholder="Add a friend..." class="materialize-textarea"
+                                       name="username"></textarea>
                                 <label for="newFriendship"></label>
                             </div>
                             <button type="submit" name="action">Add
@@ -162,7 +167,8 @@
                     <div th:each="friend : ${friends}">
                         <form method="friendship" th:object="${manageFriendRequest}"
                               th:action="@{/friendship/manage/{username}(username=${friend.getUserName()})}">
-                            <p><b th:text="${friend.getUserName()}"></b></p>
+                            <b th:text="${friend.getUserName()}"></b>
+                            <br>
                             <button type="submit" name="action" value="reject">Remove
                                 <i class="material-icons right"></i>
                             </button>
@@ -174,7 +180,8 @@
                     <div th:each="friend : ${friendRequests}">
                         <form method="friendship" th:object="${manageFriendRequest}"
                               th:action="@{/friendship/manage/{username}(username=${friend.getUserName()})}">
-                            <p><b th:text="${friend.getUserName()}"></b></p>
+                            <b th:text="${friend.getUserName()}"></b>
+                            <br>
                             <button type="submit" name="action" value="accept">Accept
                                 <i class="material-icons right"></i>
                             </button>
