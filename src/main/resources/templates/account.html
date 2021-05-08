@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>OurVid Home</title>
@@ -87,9 +87,11 @@
                                     th:text="${post.getCreatedAt()}"></em></div>
                             <h3 th:text="${post.getTitle()}"></h3>
                             <p th:text="${post.getTextBody()}"></p>
+                            <div th:if="${user == post.getUser()}">
                             <button type="submit" name="action" value="delete">Delete
                                 <i class="material-icons right"></i>
-                            </button>
+                            </button >
+                            </div>
                             <button type="submit" name="action" value="comments">View Comments
                                 <i class="material-icons right"></i>
                             </button>
@@ -124,14 +126,9 @@
                 <div class="card" th:each="comment : ${comments}">
                     <div class="container">
                         <form class="col s12" method="post" th:object="${commentdelete}"
-<<<<<<< HEAD
-                                th:action="@{/post/delete/{id}(id=${comment.getCommentId()})}">
-                            <p class="userName"><b th:text="${comment.getUser().getUserName()}"></b></p>
-=======
                               th:action="@{/post/delete/{id}(id=${comment.getCommentId()})}">
                             <div class="userName"><b th:text="${comment.getUser().getUserName()}"></b><br><em th:text="${comment.getCreatedAt()}"></em></div>
                             <br>
->>>>>>> da87a5abee63e2f46ad5294c3302ce5acebdd4ec
                             <p th:text="${comment.getTextBody()}"></p>
                             <button type="submit" name="action">Delete
                                 <i class="material-icons right"></i>
