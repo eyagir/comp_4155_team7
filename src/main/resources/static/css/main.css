@@ -2242,6 +2242,7 @@ input, select, textarea {
 			}
 
 			.panel > *.color4-alt {
+				margin-top: 100px;
 				background-image: url("../../images/overlay.png"), linear-gradient(45deg, rgba(114, 97, 147, 0.175) 25%, rgba(227, 123, 124, 0.175) 50%, rgba(255, 228, 180, 0.175));
 				background-size: 128px 128px, auto;
 				background-color: #323459;
@@ -3036,6 +3037,8 @@ input, select, textarea {
 			.panel .span-10 {
 				width: 100%;
 			}
+
+
 
 			.panel.small, .panel.medium, .panel.large {
 				width: 100% !important;

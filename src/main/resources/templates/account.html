@@ -78,7 +78,7 @@
                     </div>
                 </form>
             </div>
-            <div class="inner">
+            <div class="inner columns divided">
                 <div class="card" th:each="post : ${posts}">
                     <div class="container">
                         <form class="col s12" method="post" th:object="${post}"
@@ -102,7 +102,7 @@
 
 
         <!-- Comments Panel -->
-        <section class="panel color4">
+        <section class="panel color4" style="vertical-align: middle; overflow-y: auto;">
             <div class="intro joined">
                 <h2> Make a Comment </h2>
 
@@ -120,11 +120,11 @@
                     </div>
                 </form>
             </div>
-            <div class="inner">
+            <div class="inner columns divided">
                 <div class="card" th:each="comment : ${comments}">
                     <div class="container">
                         <form class="col s12" method="post" th:object="${commentdelete}"
-                              th:action="@{/post/delete/{id}(id=${comment.getCommentId()})}">
+                                th:action="@{/post/delete/{id}(id=${comment.getCommentId()})}">
                             <p class="userName"><b th:text="${comment.getUser().getUserName()}"></b></p>
                             <p th:text="${comment.getTextBody()}"></p>
                             <p th:text="${comment.getCreatedAt()}"></p>
@@ -135,9 +135,8 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            <div>
         </section>
-
 
         <!-- Panel -->
         <section class="panel">
