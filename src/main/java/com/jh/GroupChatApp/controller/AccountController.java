@@ -41,10 +41,7 @@ public class AccountController {
         model.addAttribute("user", user);
         model.addAttribute("posts", postService.getPostsByUserAndFriends(user));
         if (redirectAttributes.getAttribute("selectedPost") == null) {
-            List<Post> posts = new ArrayList<>();
-            posts = postService.getPostsByUserAndFriends(user);
-            Collections.sort(posts, Comparator.comparing(Post::getCreatedAt));
-            model.addAttribute("comments", commentService.getCommentsByPost(posts.get(posts.size() - 1)));
+            model.addAttribute("comments", commentService.getCommentsByPost(postService.getPostsByUserAndFriends(user).get(0)));
         } else {
             model.addAttribute("comments", commentService.getCommentsByPost(postService.getPostById((int)redirectAttributes.getAttribute("selectedPost"))));
         }

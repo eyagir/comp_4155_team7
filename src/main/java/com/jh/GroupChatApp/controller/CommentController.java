@@ -37,10 +37,7 @@ public class CommentController {
         comment.setUser(user);
         comment.setCreatedAt(new Timestamp(new Date().getTime()));
         if (redirectAttributes.getAttribute("selectedPost") == null) {
-            List<Post> posts = new ArrayList<>();
-            posts = postService.getPostsByUserAndFriends(user);
-            Collections.sort(posts, Comparator.comparing(Post::getCreatedAt));
-            comment.setPost(posts.get(posts.size() - 1));
+            comment.setPost(postService.getPostsByUserAndFriends(user).get(0));
         } else {
             comment.setPost(postService.getPostById((int)redirectAttributes.getAttribute("selectedPost")));
         }

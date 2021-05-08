@@ -66,6 +66,8 @@ public class PostServiceImplement implements PostService {
             posts.addAll(getPostsByUser(friend));
         }
         posts.addAll(getPostsByUser(user));
+        Collections.sort(posts, Comparator.comparing(Post::getCreatedAt));
+        Collections.reverse(posts);
         return posts;
     }
 }
