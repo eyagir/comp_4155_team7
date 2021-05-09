@@ -2,6 +2,7 @@ package com.jh.GroupChatApp.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Base64;
 
 @Entity
 public class Post {
@@ -23,6 +24,7 @@ public class Post {
 
     @Column(name = "textbody")
     private String textBody;
+
 
     public Long getPostId() { return postId; }
 

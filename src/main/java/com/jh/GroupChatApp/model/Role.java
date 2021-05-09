@@ -10,21 +10,12 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String role;
+    @OneToOne
+    @JoinColumn(name = "userid")
+    private User user;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "rolename")
+    private String roleName;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

@@ -1,5 +1,8 @@
 package com.jh.GroupChatApp.serviceInterface;
 
-public class RoleService {
+import org.springframework.stereotype.Service;
+
+@Service
+public interface RoleService {
 
 }

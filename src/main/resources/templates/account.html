@@ -78,7 +78,7 @@
                     </div>
                 </form>
             </div>
-            <div class="inner columns divided">
+            <div class="card-columns">
                 <div class="card" th:each="post : ${posts}">
                     <div class="container">
                         <form class="col s12" method="post" th:object="${post}"
@@ -88,9 +88,9 @@
                             <h3 th:text="${post.getTitle()}"></h3>
                             <p th:text="${post.getTextBody()}"></p>
                             <div th:if="${user == post.getUser()}">
-                            <button type="submit" name="action" value="delete">Delete
-                                <i class="material-icons right"></i>
-                            </button >
+                                <button type="submit" name="action" value="delete">Delete
+                                    <i class="material-icons right"></i>
+                                </button>
                             </div>
                             <button type="submit" name="action" value="comments">View Comments
                                 <i class="material-icons right"></i>
@@ -122,12 +122,13 @@
                     </div>
                 </form>
             </div>
-            <div class="inner columns divided">
+            <div class="card-columns">
                 <div class="card" th:each="comment : ${comments}">
                     <div class="container">
                         <form class="col s12" method="post" th:object="${commentdelete}"
                               th:action="@{/post/delete/{id}(id=${comment.getCommentId()})}">
-                            <div class="userName"><b th:text="${comment.getUser().getUserName()}"></b><br><em th:text="${comment.getCreatedAt()}"></em></div>
+                            <div class="userName"><b th:text="${comment.getUser().getUserName()}"></b><br><em
+                                    th:text="${comment.getCreatedAt()}"></em></div>
                             <br>
                             <p th:text="${comment.getTextBody()}"></p>
                             <button type="submit" name="action">Delete
@@ -137,7 +138,7 @@
                         </form>
                     </div>
                 </div>
-            <div>
+                <div>
         </section>
 
         <!-- Panel -->
@@ -151,7 +152,7 @@
                         <div class="row">
                             <div class="input-field col s8">
                                 <textarea id="newFriendship" placeholder="Add a friend..." class="materialize-textarea"
-                                       name="username"></textarea>
+                                          name="username"></textarea>
                                 <label for="newFriendship"></label>
                             </div>
                             <button type="submit" name="action">Add
@@ -160,33 +161,35 @@
                         </div>
                     </form>
 
-                    <p><b>Friends:</b></p>
-                    <div th:each="friend : ${friends}">
-                        <form method="friendship" th:object="${manageFriendRequest}"
-                              th:action="@{/friendship/manage/{username}(username=${friend.getUserName()})}">
-                            <b th:text="${friend.getUserName()}"></b>
+                    <div class="card-columns">
+                        <p><b>Friends:</b></p>
+                        <div th:each="friend : ${friends}">
+                            <form method="friendship" th:object="${manageFriendRequest}"
+                                  th:action="@{/friendship/manage/{username}(username=${friend.getUserName()})}">
+                                <b th:text="${friend.getUserName()}"></b>
+                                <br>
+                                <button type="submit" name="action" value="reject">Remove
+                                    <i class="material-icons right"></i>
+                                </button>
+                            </form>
                             <br>
-                            <button type="submit" name="action" value="reject">Remove
-                                <i class="material-icons right"></i>
-                            </button>
-                        </form>
-                        <br>
-                    </div>
+                        </div>
 
-                    <p>Requests:</p>
-                    <div th:each="friend : ${friendRequests}">
-                        <form method="friendship" th:object="${manageFriendRequest}"
-                              th:action="@{/friendship/manage/{username}(username=${friend.getUserName()})}">
-                            <b th:text="${friend.getUserName()}"></b>
-                            <br>
-                            <button type="submit" name="action" value="accept">Accept
-                                <i class="material-icons right"></i>
-                            </button>
-                            <button type="submit" name="action" value="reject">Reject
-                                <i class="material-icons right"></i>
-                            </button>
-                        </form>
+                        <p>Requests:</p>
+                        <div th:each="friend : ${friendRequests}">
+                            <form method="friendship" th:object="${manageFriendRequest}"
+                                  th:action="@{/friendship/manage/{username}(username=${friend.getUserName()})}">
+                                <b th:text="${friend.getUserName()}"></b>
+                                <br>
+                                <button type="submit" name="action" value="accept">Accept
+                                    <i class="material-icons right"></i>
+                                </button>
+                                <button type="submit" name="action" value="reject">Reject
+                                    <i class="material-icons right"></i>
+                                </button>
+                            </form>
 
+                        </div>
                     </div>
                 </div>
             </div>
