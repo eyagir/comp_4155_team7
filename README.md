@@ -14,5 +14,8 @@ Technologies:
   
 Code:
   Java
-  Html/css/javascript
+  Html/css/javascript 
   Python(for prototype)
+
+ Resources:
+  Ethereal from HTML5 UP (https://html5up.net/ethereal)
